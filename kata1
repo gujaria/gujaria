@@ -30,9 +30,6 @@ public class kata3 {
 			// temp[i]=temp[i].replaceAll(" ","#"); test/debug for spaces
 			if( i<temp.length-1 )
 				 res=res+temp[i]+"\n";
-			//if(temp[i].contains(newline) && i<temp.length-1)
-			//	System.out.println("this is true");
-			//	res=res+temp[i];
 			i++;
 		}while(i<temp.length);
 		res=res+temp[temp.length-1];
