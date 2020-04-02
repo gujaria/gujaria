@@ -1,0 +1,66 @@
+
+public class kata3 {
+
+	public static void main(String args[])
+	{
+		String text="apples, pears # and bananas\ngrapes\nbananas !apples\n\n\n #somethinghereh\n #here auch \n apples, pears # and bananas\\n";
+		String[] commentSymbols=new String[] { "#", "!" };
+		
+		String[] temp;
+		int i=0;
+		temp=text.split("\n");
+		String res="";
+		String newline = System.getProperty("line.separator");
+		System.out.println("Before edit");
+		System.out.println(text);
+		do
+		{
+			for(int j=0; j<commentSymbols.length;j++)
+			{
+				if(temp[i].indexOf(commentSymbols[j]) != -1 && temp[i].stripLeading().indexOf(commentSymbols[j])!=0  ) // temp[i].stripLeading().charAt(0)!=commentSymbols[j].toCharArray()[0] )				
+				{
+					temp[i]=temp[i].substring(0, temp[i].indexOf(commentSymbols[j]));
+				}
+				else if (temp[i].indexOf(commentSymbols[j]) != -1 && temp[i].stripLeading().indexOf(commentSymbols[j])==0  )//(temp[i].indexOf(commentSymbols[j]) != -1 && i<temp.length-1)
+				{
+					temp[i]=newline;
+				}
+			}
+			temp[i]=temp[i].stripTrailing();
+			// temp[i]=temp[i].replaceAll(" ","#"); test/debug for spaces
+			if( i<temp.length-1 )
+				 res=res+temp[i]+"\n";
+			//if(temp[i].contains(newline) && i<temp.length-1)
+			//	System.out.println("this is true");
+			//	res=res+temp[i];
+			i++;
+		}while(i<temp.length);
+		res=res+temp[temp.length-1];
+		//System.out.println("-------------------------------------------------------------------------");
+		//System.out.println("After edit");
+		//System.out.println((res));
+		//System.out.println("---------------------------------------------------------------------------");
+		//print(temp);
+	}
+	
+	public static void print(String[] a)
+	{
+		
+		for(int i=0; i<a.length;i++)
+		{
+		System.out.println(a[i]);
+		}
+	}
+	
+	public static String connect(String[] temp)
+	{
+		String res;
+		StringBuffer sb = new StringBuffer();
+		for(int i=0;i<temp.length;i++)
+		{
+			sb.append(temp[i]);
+		}
+		res=sb.toString();
+		return res;
+	}
+}
