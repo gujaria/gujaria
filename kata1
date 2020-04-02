@@ -36,11 +36,6 @@ public class kata3 {
 			i++;
 		}while(i<temp.length);
 		res=res+temp[temp.length-1];
-		//System.out.println("-------------------------------------------------------------------------");
-		//System.out.println("After edit");
-		//System.out.println((res));
-		//System.out.println("---------------------------------------------------------------------------");
-		//print(temp);
 	}
 	
 	public static void print(String[] a)
